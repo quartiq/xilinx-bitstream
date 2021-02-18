@@ -191,11 +191,13 @@ class Rewriter(Parser):
 
 
 registers = list(
-    "CRC FAR FDRI FDRO CMD CTL0 MASK STAT LOUT COR0 MFWR CBC IDCODE "
-    "AXSS COR1 _ WBSTAR TIMER BSPI_READ FALL_EDGE _ _ BOOTSTS _ CTL1 "
-    "_ _ _ _ _ _ BSPI".split())
+    "CRC FAR FDRI FDRO CMD CTL0 MASK STAT "
+    "LOUT COR0 MFWR CBC IDCODE AXSS COR1 _ "
+    "WBSTAR TIMER _ _ _ _ BOOTSTS _ "
+    "CTL1 _ _ _ _ _ _ BSPI".split())
+
 assert registers[0b11000] == "CTL1"
-assert registers[0b10011] == "FALL_EDGE"
+assert registers[0b10110] == "BOOTSTS"
 assert registers[0b11111] == "BSPI"
 assert registers[0b01100] == "IDCODE"
 
